@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header>
+        <h2>Hello, welcome! Please help me gather data for my AI project.</h2>
+    </header>
+
+    <main>
+            <div class="report-card">
+            <h3>Current Student Marks:</h3>
+            <ul>
+                {% for subject, score in marks.items() %}
+                    <li><strong>{{ subject }}:</strong> {{ score }}</li>
+                {% endfor %}
+            </ul>
+            </div>
+        <h3>Based on these marks, which faculty should they choose?</h3>
+
+        <form action="/save" method="POST" style="display: inline;">
+            <input type="hidden" name="all_marks" value="{{ marks }}">
+            <button type="submit" name="choice" value="Science">Science</button>
+        </form>
+
+        <form action="/save" method="POST" style="display: inline;">
+            <input type="hidden" name="all_marks" value="{{ marks }}">
+            <button type="submit" name="choice" value="Management">Management</button>
+        </form>
+
+
+    </main>
+    <a href="{{ url_for('predict') }}">Check your one :></a>
+    <footer><h2>sybau</h2></footer>
+</body>
+</html>

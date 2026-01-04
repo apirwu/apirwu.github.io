@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Marks Entry</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='design.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Student Marks</h2>
+
+        <form action="/predict" method="POST">
+            <div class="grid">
+                <div>
+                    <label>C Math</label>
+                    <input type="number" name="c_math" required>
+                </div>
+                <div>
+                    <label>O Math</label>
+                    <input type="number" name="o_math" required>
+                </div>
+                <div>
+                    <label>Science</label>
+                    <input type="number" name="science" required>
+                </div>
+                <div>
+                    <label>Nepali</label>
+                    <input type="number" name="nepali" required>
+                </div>
+                <div>
+                    <label>English</label>
+                    <input type="number" name="english" required>
+                </div>
+                <div>
+                    <label>Computer</label>
+                    <input type="number" name="computer" required>
+                </div>
+                <div>
+                    <label>Social</label>
+                    <input type="number" name="social" required>
+                </div>
+            </div>
+
+            <button type="submit">Predict Faculty</button>
+        </form>
+    </div>
+
+    <div class="result-box">
+        <h1>Recommended Faculty: {{ prediction }}</h1>
+    </div>
+</body>
+</html>
